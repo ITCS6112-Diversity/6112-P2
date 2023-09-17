@@ -12,8 +12,8 @@ function arrayFilterer(filterCriteria, callback) {
     return this
 }
 
-function filterCriteria(elem) {
-    for (let i = 0; i < elem.length; i++) {
+function filterCriteria(element) {
+    for (let i = 0; i < element.length; i++) {
 
     }
 }
