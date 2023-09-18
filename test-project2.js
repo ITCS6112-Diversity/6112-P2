@@ -23,7 +23,7 @@ var module = {
   // Keep track of all the var statements
   varDeclared: ['varDeclared', 'p1Message', 'p2Message', 'p3Message'],
 
-  arraysAreTheSame2: function(a1, a2){
+  arraysAreTheSame: function(a1, a2){
     if (!Array.isArray(a1) || !Array.isArray(a2) || (a1.length !== a2.length)) {
       return false;
     }
