@@ -10,9 +10,9 @@ class TemplateProcessor {
         var updated = "";
         for (var i = 0; i<this.template.length; i++) {
             var c = this.template[i];
-            if (c == '{') {
+            if (c === '{') {
                 var c2 = this.template[i+1];
-                if (c2 != '{') {
+                if (c2 !== '{') {
                     updated += c2;
                     ++i;
                     continue;
@@ -21,13 +21,13 @@ class TemplateProcessor {
                 
                 var keyword = "";
                 for (var j = i+1; j<this.template.length; j++, i++) {
-                    var c1 = this.template[j];
-                    var c2 = this.template[j+1];
-                    if (c1 == '}' && c2 == '}') {
+                    var c3 = this.template[j];
+                    var c4 = this.template[j+1];
+                    if (c3 === '}' && c4 === '}') {
                         i += 2;
                         break;
                     } else {
-                        keyword += c1;
+                        keyword += c3;
                     }
                 }
                 
