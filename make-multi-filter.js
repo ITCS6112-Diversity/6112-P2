@@ -1,22 +1,21 @@
-'use strict'
+'use script'
 
 function MakeMultiFilter(originalArray) {
-    let currentArray = originalArray
-    return arrayFilterer()
-}
+  let currentArray = [...originalArray];
 
-function arrayFilterer(filterCriteria, callback) {
+  function arrayFilterer(filterCriteria, callback) {
     if (typeof filterCriteria !== 'function') {
-        //return currentArray
+      return currentArray;
     }
-    return this
-}
 
-function filterCriteria(element) {
-    for (let i = 0; i < element.length; i++) {
+    currentArray = currentArray.filter(filterCriteria);
 
+    if (typeof callback === 'function') {
+      callback(currentArray);
     }
-}
-function callback() {
 
+    return arrayFilterer;
+  }
+
+  return arrayFilterer;
 }
