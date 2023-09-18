@@ -3,15 +3,20 @@
 function MakeMultiFilter(originalArray) {
   let currentArray = [...originalArray];
 
-  function arrayFilterer(filterCriteria, callback) {
-    if (typeof filterCriteria !== 'function') {
-      return currentArray;
+  const arrayFilterer = function(filterCriteria, callback) {
+    if (arrayFilterer.currentArray === undefined) {
+      arrayFilterer.currentArray = originalArray;
     }
 
-    currentArray = currentArray.filter(filterCriteria);
+    if (typeof filterCriteria !== 'function') {
+      return arrayFilterer.currentArray;
+    }
+    else{
+        arrayFilterer.currentArray = arrayFilterer.currentArray.filter(filterCriteria);
+    }
 
     if (typeof callback === 'function') {
-      callback(currentArray);
+      callback.call(originalArray,arrayFilterer.currentArray);
     }
 
     return arrayFilterer;
